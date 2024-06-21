@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"  content="width=device-width, initial-scale=1">
+    <title>Gender Cell</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="mainfile.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Lexend+Deca:wght@100..900&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top navbarScroll">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="navbar-brand" href="#">
+                <img src="logo3.png" alt="Logo" class="navbar-logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" id="ok1" href="#" onclick="loadSection('homesection.html')">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="ok2" href="#" onclick="loadSection('sexual_harassment.html')">Sexual Harassment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="ok3" href="#" onclick="loadSection('needhelp.html')">Need Help</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="ok3" href="#" onclick="loadSection('activities.html')">activities</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div id="sectionContent" class="container"></div> 
+    
+
+    <hr>
+
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container text-center">
+            <span class="text-muted footer-text" id="footerlink"><a href ="https://www.iitk.ac.in/wc/data/combined-24-01-20.pdf">IITK's Policy on Relationships among students/employees</a></span><br>
+            <span class="text-muted footer-text">© 2024 Gender cell, IIT Kanpur. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+        
+        
+
+</body>
+
+</html>
+<script>
+
+    function loadSection(url) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("sectionContent").innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("GET", url, true);
+        xhttp.send();
+    }
+    
+    window.onload = function() {
+        loadSection('homesection.html');
+    };
+
+
+
+function isInViewport(element) {
+    var rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+function handleSlideIn() {
+    var cards = document.querySelectorAll('.slide-in');
+    cards.forEach(function(card) {
+        if (isInViewport(card)) {
+            card.classList.add('slide-in-active');
+        }
+    });
+}
+
+function handleRollIn() {
+    var cards = document.querySelectorAll('.roll-in');
+    cards.forEach(function(card) {
+        if (isInViewport(card)) {
+            card.classList.add('roll-in-active');
+        }
+    });
+}
+
+window.addEventListener('scroll', function() {
+    handleSlideIn();
+    handleRollIn();
+});
+
+handleSlideIn();
+handleRollIn();
+
+</script>
